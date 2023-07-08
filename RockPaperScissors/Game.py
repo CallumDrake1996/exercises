@@ -83,17 +83,20 @@ def RPS():
 
     while player <= 3 or comp <= 3:
         player_pick = input("Rock, Paper, or Scissors? ")
-        if player_pick == "Rock" or player_pick == "rock":
+        if player_pick == "ROCK" or player_pick == "rock":
             rock(player, comp)
             if player == 1:
                 player = player + 1
                 return
             continue
-        elif player_pick == "Paper" or player_pick == "paper":
+        elif player_pick == "PAPER" or player_pick == "paper":
             player_pick = paper(player, comp)
             continue
+        elif player_pick == "scissors" or player_pick == "SCISSORS":
+            player_pick = scissors(player, comp)
+            continue    
         else:
-            scissors(player, comp)
+            print('PLEASE FOLLOW RULES AND TRY AGAIN')
             continue
 
 
