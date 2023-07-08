@@ -68,17 +68,12 @@ def scissors():
 
 
 def RPS():
-    global player_point
-    player_point = 0
-    global comp_point
-    comp_point = 0
     print("Welcome to the game of Rock, Paper, Scissors!")
     print('')
-    print("this game is first to 3 points wins the game")
+    print("This game is best of three.")
     print('')
     print('Choose your weapon!')
     print('')
-
 
     while player_point < 3 and comp_point < 3:
         player_pick = input("Rock, Paper, or Scissors? ")
@@ -105,12 +100,3 @@ def RPS():
             continue
     
 RPS()
-
-replay = input('Would you like to play again? Y/N? ')
-
-while replay == 'Y' or replay == 'y':
-    RPS()
-    replay = input('Would you like to play again? Y/N? ')
-
-print('')
-print('Thanks for playing!')
