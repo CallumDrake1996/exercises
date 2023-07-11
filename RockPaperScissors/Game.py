@@ -1,11 +1,15 @@
-import random
+import random 
+# importing random module to generate random numbers
 
+
+# global variables
 player_point = 0
 comp_point = 0
 
-
+# each function will be used to determine the outcome of the game one for rock, paper and scissors
 def paper():
     choice = 1
+    # random number generator 1-3 then assigned each number to a choice
     opponent = random.randint(1, 3)
     if opponent == choice:
         print("Computer chose Paper")
@@ -15,13 +19,15 @@ def paper():
         print('Computer chose Rock')
         print('')
         print('Round WON!!!')
-        global player_point 
+        # global variables are used to keep track of the score win adding a point
+        global player_point
         player_point += 1
     else:
         print('Computer chose Scissors')
         print('')
         print('You LOST!!!')
-        global comp_point
+        # global variables are used to keep track of the score loss adding a point
+        global comp_point 
         comp_point += 1
 
 
@@ -66,7 +72,7 @@ def scissors():
         print('')
         print('DRAW!!!')
 
-
+# this is the function for the start of the game
 def RPS():
     global player_point
     player_point = 0
@@ -79,22 +85,23 @@ def RPS():
     print('Choose your weapon!')
     print('')
 
-
+# while loop is used to keep track of the score and keep the game going until the score is 3 for either the player or the computer and then prints the score after every round.
     while player_point < 3 and comp_point < 3:
         player_pick = input("Rock, Paper, or Scissors? ")
-        if player_pick == "ROCK" or player_pick == "rock":
+        player_pick = player_pick.lower()
+        if player_pick == "rock":
             rock()
             print('player score: ' + str(player_point))
             print('computer score: ' + str(comp_point))
             print('')
             continue
-        elif player_pick == "PAPER" or player_pick == "paper":
+        elif  player_pick == "paper":
             paper()
             print('player score: ' + str(player_point))
             print('computer score: ' + str(comp_point))
             print('')   
             continue
-        elif player_pick == "scissors" or player_pick == "SCISSORS":
+        elif player_pick == "scissors":
             scissors()
             print('player score: ' + str(player_point))
             print('computer score: ' + str(comp_point))
@@ -102,8 +109,10 @@ def RPS():
             continue 
         else:
             print('PLEASE FOLLOW RULES AND TRY AGAIN')
+            print('')
             continue
     
+# calling the function for the game to start and then asking if the user would like to play again. 
 RPS()
 
 replay = input('Would you like to play again? Y/N? ')
